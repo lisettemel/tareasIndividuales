@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 /*
 Script to provide a method to change scenes used from UI
+
+Lisette Melo Reyes
 */
 public class SceneChanger : MonoBehaviour
 {

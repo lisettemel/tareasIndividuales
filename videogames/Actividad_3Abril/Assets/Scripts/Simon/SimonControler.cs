@@ -10,6 +10,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SimonController : MonoBehaviour
 {
@@ -22,17 +23,48 @@ public class SimonController : MonoBehaviour
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform buttonParent;
 
-
-
-
     [SerializeField] int counter = 0;
+    
+    [SerializeField] private TextMeshProUGUI scoreText; 
+    private int score = 0;
 
+
+    
     // Start is called before the first frame update
     void Start()
     {
         // Configure the buttons to be used in the game
         PrepareButtons();
+        UpdateScoreText();
     }
+
+    // Update the TextMeshProUGUI text property with the current score
+    void UpdateScoreText() {
+    scoreText.text = "Score: " + score.ToString();
+}
+
+// Restarts the game when the Start button is pressed.
+public void StartGame() {
+    // Find the Start button in the scene by its name
+    GameObject startButton = GameObject.Find("StartButton");
+    // If the Start button is found, it disables it to prevent repressing during gameplay
+    if (startButton != null) {
+        startButton.GetComponent<Button>().interactable = false; 
+    }
+
+    sequence.Clear();
+    level = 1;
+    score = 0;
+    counter = 0;
+    playerTurn = false;
+    UpdateScoreText();
+    AddToSequence();  
+}
+
+
+
+
+
 
     // Configure the callback functions for the buttons
     void PrepareButtons()
@@ -46,8 +78,7 @@ public class SimonController : MonoBehaviour
             buttons.Add(newButton.GetComponent<SimonButton>());
             buttons[i].gameObject.GetComponent<Button>().onClick.AddListener(() => ButtonPressed(index));
         }
-        // Start the game by adding the first button
-        AddToSequence();
+
     }
 
     // Main function to validate that the button pressed by the user 
@@ -58,15 +89,18 @@ public class SimonController : MonoBehaviour
                 // Highlight the button selected by the player
                 buttons[index].Highlight();
                 if (counter == sequence.Count) {
+                    score += 1;
+                    UpdateScoreText();
                     // Finish the player turn to ensure no other actions are
                     // taken into account
                     playerTurn = false;
                     level++;
                     counter = 0;
                     AddToSequence();
+                    
                 }
             } else {
-                Debug.Log("Game Over!");
+                Debug.Log("Game Over! Final Score: " + score);
             }
         }
     }
@@ -82,13 +116,16 @@ public class SimonController : MonoBehaviour
     // Display every button in the sequence so far
     IEnumerator PlaySequence()
     {
-        // Add an initial delay before showing the sequence
         yield return new WaitForSeconds(delay);
-        foreach (int index in sequence) {
+        for (int i = 0; i < sequence.Count; i++)  // Use for loop
+        {
+            int index = sequence[i];
             buttons[index].Highlight();
             yield return new WaitForSeconds(delay);
         }
-        // Switch the turn over to the player
         playerTurn = true;
     }
+
+    
+
 }
