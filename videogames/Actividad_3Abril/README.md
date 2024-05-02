@@ -1,6 +1,6 @@
 # **VideoGames**
 
-En esta sección tenemos 2 juegos. Cuando abres los juegos podrás ver un menú principal. Dentro de este menú podrás elegir entre jugar Pong o Simon.
+En esta sección tenemos 2 juegos. Cuando abres los juegos podrás ver un menú principal. Dentro de este menú podrás elegir entre jugar Pong(tenis bidimensional en blanco y negro que recuerda la dinámica del ping-pong) o Simon(precionat botones en una cierta secuencia).
 
 **Juego pong**
 
@@ -13,3 +13,12 @@ Podrás resetear el juego con el botón "Reset" para que la pelota pueda tener d
 Para iniciar este juego oprime el botón "Start" que se encuentra en la parte de abajo del juego. También existe un botón de "Menú" que regresa al menú principal. 
 
 Al iniciar el juego tendrás que seguir la secuencia de los botones para poder avanzar al siguiente nivel. Podrás consultar cuántos puntos acumulados tienes en tu partida en el número de la derecha en la parte de arriba
+
+
+**Trabajo en equipo**
+
+Realizamos los pasos basicos en conjunto
+
+Lisette Melo - Botones para empezar el juego y regresar al menú
+
+José Manuel Zumaya - Puntaje de los jugadores 
