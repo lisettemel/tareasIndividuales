@@ -1,4 +1,4 @@
-**VideoGames**
+# **VideoGames**
 
 En esta sección tenemos 2 juegos. Cuando abres los juegos podrás ver un menú principal. Dentro de este menú podrás elegir entre jugar Pong o Simon.
 
