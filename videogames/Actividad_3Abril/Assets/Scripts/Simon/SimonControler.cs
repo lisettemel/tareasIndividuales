@@ -28,7 +28,20 @@ public class SimonController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText; 
     private int score = 0;
 
+    string apiData = @"
+    {
+        ""buttons"": [
+            {
+                ""id"": 0,
+                ""r"": 1.0,
+                ""g"": 0.0,
+                ""b"": 0.5
+            }
+        ]
+    }
+";
 
+    [SerializeField] ColorButtons allButtons;   
     
     // Start is called before the first frame update
     void Start()
@@ -69,15 +82,26 @@ public void StartGame() {
     // Configure the callback functions for the buttons
     void PrepareButtons()
     {
-        for (int i=0; i<numButtons; i++) {
-            int index = i;
+        // Convertir the json into an object
+        allButtons = JsonUtility.FromJson<ColorButtons>(apiData);
+
+        foreach (ColorButton buttonData in allButtons.buttons) {
+            GameObject newButton = Instantiate(buttonPrefab, buttonParent);
+            newButton.GetComponent<Image>().color = new Color(buttonData.r, buttonData.g, buttonData.b);
+            newButton.GetComponent<SimonButton>().Init(buttonData.id);
+            buttons.Add(newButton.GetComponent<SimonButton>());
+            newButton.gameObject.GetComponent<Button>().onClick.AddListener(() => ButtonPressed(buttonData.id));
+
+        }
+       /* for (int i=0; i<numButtons; i++) {
+            //int index = i;
             //Create the copies of the button as a children of the Panel
             GameObject newButton = Instantiate(buttonPrefab, buttonParent);
-            newButton.GetComponent<Image>().color = Color.HSVToRGB((float)index/numButtons, 1, 1);
-            newButton.GetComponent<SimonButton>().Init(index);
+            //newButton.GetComponent<Image>().color = Color.HSVToRGB((float)index/numButtons, 1, 1);
+            //newButton.GetComponent<SimonButton>().Init(index);
             buttons.Add(newButton.GetComponent<SimonButton>());
             buttons[i].gameObject.GetComponent<Button>().onClick.AddListener(() => ButtonPressed(index));
-        }
+        } */
 
     }
 
