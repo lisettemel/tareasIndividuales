@@ -4,11 +4,18 @@
 import express from "express";
 
 import mysql from "mysql2/promise";
+import fs from "fs";
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(express.static("public"));
+
+app.get("/web", (req, res) => {
+  const file = fs.readFileSync("public/html/hello.html", "utf8");
+  res.status(200).send(file);
+})
 
 // Function to connect to the MySQL database
 
