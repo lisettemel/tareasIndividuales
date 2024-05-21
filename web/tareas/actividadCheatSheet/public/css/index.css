@@ -1,0 +1,149 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+main {
+    padding: 20px;
+}
+
+.property {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.property h2 {
+    color: #4CAF50;
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+.description {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.example {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.border-example {
+    border: 2px solid #000;
+}
+
+.border-sides-example {
+    border-left: 4px solid red;
+    border-right: 4px solid blue;
+    border-top: 4px solid green;
+    border-bottom: 4px solid yellow;
+}
+
+.border-radius-example {
+    border: 2px solid #000;
+    border-radius: 15px;
+}
+
+.background-image-example {
+    background-image: url('https://i.pinimg.com/564x/ca/39/54/ca39542a94bb36a030690c2a4041432d.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color-example {
+    color: #ff6347;
+}
+
+.font-example {
+    font: italic bold 20px Arial, sans-serif;
+}
+
+.font-family-example {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.font-style-example {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.width-height-example {
+    width: 200px;
+    height: 100px;
+    background-color: #add8e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list-style-example {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.margin-example {
+    margin: 20px;
+    border: 2px solid #000;
+}
+
+.padding-example {
+    padding: 20px;
+    border: 2px solid #000;
+}
+
+.overflow-example {
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+    border: 2px solid #000;
+}
+
+.display-example {
+    display: inline-block;
+    border: 2px solid #000;
+    padding: 10px;
+}
+
+.position-example {
+    position: relative;
+    top: 10px;
+    left: 20px;
+    border: 2px solid #000;
+}
+
+.filter-example img {
+    filter: grayscale(100%);
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
