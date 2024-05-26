@@ -1,0 +1,25 @@
+* {
+    font-family: Verdana, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+div {
+    border: solid 2px black;
+    margin: 10px;
+    padding: 10px;
+}
+
+#flex-container{
+    display: flex;
+}
+
+#flex-container-colum{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.flex-header{
+    display: flex;
+}
+
